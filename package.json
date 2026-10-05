@@ -1,0 +1,32 @@
+{
+  "name": "debug",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Minimal repro: electron-builder pnpm collector drops deps when the app name equals a dependency name",
+  "main": "main.js",
+  "packageManager": "pnpm@10.29.2",
+  "scripts": {
+    "dist": "electron-builder --dir --publish never",
+    "verify": "node verify.js"
+  },
+  "dependencies": {
+    "debug": "4.4.1",
+    "lodash": "4.17.21",
+    "ms": "2.1.3"
+  },
+  "devDependencies": {
+    "@electron/asar": "3.4.1",
+    "electron": "38.7.2",
+    "electron-builder": "26.17.0"
+  },
+  "build": {
+    "appId": "com.example.eb-same-name-repro",
+    "productName": "SameNameRepro",
+    "files": [
+      "main.js"
+    ],
+    "mac": {
+      "identity": null
+    }
+  }
+}
